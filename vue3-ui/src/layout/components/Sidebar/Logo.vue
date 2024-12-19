@@ -1,3 +1,11 @@
+<!--
+ * @Author: 张泽全 hengwujun128@gmail.com
+ * @Date: 2024-09-30 16:55:30
+ * @LastEditors: 张泽全 hengwujun128@gmail.com
+ * @LastEditTime: 2024-12-19 15:30:19
+ * @Description: 
+ * @FilePath: /meimei-prisma-vue3/meimei-ui-vue3/src/layout/components/Sidebar/Logo.vue
+-->
 <template>
   <div class="sidebar-logo-container" :class="{ 'collapse': collapse }" :style="{ backgroundColor: sideTheme === 'theme-dark' ? variables.menuBackground : variables.menuLightBackground }">
     <transition name="sidebarLogoFade">
