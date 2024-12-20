@@ -6,7 +6,7 @@
       :rules="loginRules"
       class="login-form"
     >
-      <h3 class="title">槑槑管理系统</h3>
+      <h3 class="title">通用管理系统</h3>
       <el-form-item prop="username">
         <el-input
           v-model="loginForm.username"
@@ -78,7 +78,7 @@
     </el-form>
     <!--  底部  -->
     <div class="el-login-footer">
-      <span>槑槑管理系统</span>
+      <span>通用管理系统</span>
     </div>
   </div>
 </template>
@@ -99,13 +99,13 @@ const loginForm = ref({
   password: 'admin123',
   rememberMe: false,
   code: '',
-  uuid: ''
+  uuid: '',
 })
 
 const loginRules = {
   username: [{ required: true, trigger: 'blur', message: '请输入您的账号' }],
   password: [{ required: true, trigger: 'blur', message: '请输入您的密码' }],
-  code: [{ required: true, trigger: 'change', message: '请输入验证码' }]
+  code: [{ required: true, trigger: 'change', message: '请输入验证码' }],
 }
 
 const codeUrl = ref('')
@@ -118,21 +118,21 @@ const redirect = ref(undefined)
 
 watch(
   route,
-  newRoute => {
+  (newRoute) => {
     redirect.value = newRoute.query && newRoute.query.redirect
   },
   { immediate: true }
 )
 
-function handleLogin () {
-  proxy.$refs.loginRef.validate(valid => {
+function handleLogin() {
+  proxy.$refs.loginRef.validate((valid) => {
     if (valid) {
       loading.value = true
       // 勾选了需要记住密码设置在 cookie 中设置记住用户名和密码
       if (loginForm.value.rememberMe) {
         Cookies.set('username', loginForm.value.username, { expires: 30 })
         Cookies.set('password', encrypt(loginForm.value.password), {
-          expires: 30
+          expires: 30,
         })
         Cookies.set('rememberMe', loginForm.value.rememberMe, { expires: 30 })
       } else {
@@ -165,8 +165,8 @@ function handleLogin () {
   })
 }
 
-function getCode () {
-  getCodeImg().then(res => {
+function getCode() {
+  getCodeImg().then((res) => {
     captchaEnabled.value =
       res.captchaEnabled === undefined ? true : res.captchaEnabled
     if (captchaEnabled.value) {
@@ -176,7 +176,7 @@ function getCode () {
   })
 }
 
-function getCookie () {
+function getCookie() {
   const username = Cookies.get('username')
   const password = Cookies.get('password')
   const rememberMe = Cookies.get('rememberMe')
@@ -184,7 +184,7 @@ function getCookie () {
     username: username === undefined ? loginForm.value.username : username,
     password:
       password === undefined ? loginForm.value.password : decrypt(password),
-    rememberMe: rememberMe === undefined ? false : Boolean(rememberMe)
+    rememberMe: rememberMe === undefined ? false : Boolean(rememberMe),
   }
 }
 

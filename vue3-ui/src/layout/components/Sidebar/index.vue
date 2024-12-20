@@ -1,3 +1,11 @@
+<!--
+ * @Author: 张泽全 hengwujun128@gmail.com
+ * @Date: 2024-09-30 16:55:30
+ * @LastEditors: 张泽全 hengwujun128@gmail.com
+ * @LastEditTime: 2024-12-19 16:28:24
+ * @Description: 
+ * @FilePath: /meimei-prisma-vue3/vue3-ui/src/layout/components/Sidebar/index.vue
+-->
 <template>
   <div :class="{ 'has-logo': showLogo }" :style="{ backgroundColor: sideTheme === 'theme-dark' ? variables.menuBackground : variables.menuLightBackground }">
     <logo v-if="showLogo" :collapse="isCollapse" />
@@ -24,7 +32,7 @@
 </template>
 
 <script setup>
-import Logo from './Logo'
+import Logo from './Logo.vue'
 import SidebarItem from './SidebarItem'
 import variables from '@/assets/styles/variables.module.scss'
 import useAppStore from '@/store/modules/app'

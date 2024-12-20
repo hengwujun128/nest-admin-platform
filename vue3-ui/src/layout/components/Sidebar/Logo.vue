@@ -2,9 +2,9 @@
  * @Author: 张泽全 hengwujun128@gmail.com
  * @Date: 2024-09-30 16:55:30
  * @LastEditors: 张泽全 hengwujun128@gmail.com
- * @LastEditTime: 2024-12-19 15:30:19
+ * @LastEditTime: 2024-12-19 16:48:35
  * @Description: 
- * @FilePath: /meimei-prisma-vue3/meimei-ui-vue3/src/layout/components/Sidebar/Logo.vue
+ * @FilePath: /meimei-prisma-vue3/vue3-ui/src/layout/components/Sidebar/Logo.vue
 -->
 <template>
   <div class="sidebar-logo-container" :class="{ 'collapse': collapse }" :style="{ backgroundColor: sideTheme === 'theme-dark' ? variables.menuBackground : variables.menuLightBackground }">
@@ -23,7 +23,7 @@
 
 <script setup>
 import variables from '@/assets/styles/variables.module.scss'
-import logo from '@/assets/logo/logo.png'
+import logo from '@/assets/logo/logo.svg'
 import useSettingsStore from '@/store/modules/settings'
 
 defineProps({
