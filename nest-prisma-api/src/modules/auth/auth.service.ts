@@ -2,8 +2,8 @@
  * @Author: jiang.sheng 87789771@qq.com
  * @Date: 2024-04-23 19:15:56
  * @LastEditors: 张泽全 hengwujun128@gmail.com
- * @LastEditTime: 2024-11-29 15:41:45
- * @FilePath: /meimei-admin/src/modules/auth/auth.service.ts
+ * @LastEditTime: 2024-12-23 19:07:46
+ * @FilePath: /meimei-prisma-vue3/nest-prisma-api/src/modules/auth/auth.service.ts
  * @Description: 用户身份校验
  *
  */
@@ -20,6 +20,7 @@ import {
   USER_TOKEN_KEY,
   USER_VERSION_KEY,
 } from 'src/common/contants/redis.contant';
+import { access } from 'fs';
 
 @Injectable()
 export class AuthService {
@@ -68,5 +69,12 @@ export class AuthService {
     if (userString) {
       return JSON.parse(userString);
     }
+  }
+
+  validateWechat(code: string) {
+    // 通过 code 获取 token
+    return {
+      access_token: '',
+    };
   }
 }

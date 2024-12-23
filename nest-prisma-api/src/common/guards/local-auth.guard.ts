@@ -1,10 +1,10 @@
 /*
  * @Author: Sheng.Jiang
  * @Date: 2021-12-09 14:30:28
- * @LastEditTime: 2024-12-03 13:49:39
+ * @LastEditTime: 2024-12-23 18:54:07
  * @LastEditors: 张泽全 hengwujun128@gmail.com
  * @Description: 登录守卫 ，可进行登录日志记录
- * @FilePath: /meimei-admin/src/common/guards/local-auth.guard.ts
+ * @FilePath: /meimei-prisma-vue3/nest-prisma-api/src/common/guards/local-auth.guard.ts
  * You can you up，no can no bb！！
  */
 import { ExecutionContext, Injectable } from '@nestjs/common';

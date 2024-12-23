@@ -1,7 +1,7 @@
 /*
  * @Author: Sheng.Jiang
  * @Date: 2021-12-08 18:30:39
- * @LastEditTime: 2024-12-23 14:29:14
+ * @LastEditTime: 2024-12-23 19:10:51
  * @LastEditors: 张泽全 hengwujun128@gmail.com
  * @Description: 登录 controller
  * @FilePath: /meimei-prisma-vue3/nest-prisma-api/src/modules/login/login.controller.ts
@@ -17,14 +17,17 @@ import {
   Headers,
   Req,
 } from '@nestjs/common';
+import { Request } from 'express';
+
 import { Public } from 'src/common/decorators/public.decorator';
 import { User, UserEnum } from 'src/common/decorators/user.decorator';
 import { LocalAuthGuard } from 'src/common/guards/local-auth.guard';
+import { WechatAuthGuard } from 'src/common/guards/wechat-auth.guard';
+
 import { ReqLoginDto } from './dto/req-login.dto';
 import { ResImageCaptchaDto, ResLoginDto } from './dto/res-login.dto';
 import { LoginService } from './login.service';
 import { SysUser } from '@prisma/client';
-import { Request } from 'express';
 import { UserInfo } from 'src/common/type/user-info.type';
 @Controller()
 export class LoginController {
@@ -79,5 +82,14 @@ export class LoginController {
       const token = authorization.slice(7);
       await this.loginService.logout(token);
     }
+  }
+
+  /**微信登录 */
+  @Public() // 不走jwt验证
+  @UseGuards(WechatAuthGuard) // 走微信验证
+  @Post('wxLogin')
+  async wxLogin(@Req() req: Request) {
+    //TODO: 这里是获取用户信息
+    // return await this.loginService.wxLogin(reqLoginDto);
   }
 }
