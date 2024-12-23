@@ -1,9 +1,9 @@
 /*
  * @Author: JiangSheng 87789771@qq.com
  * @Date: 2024-04-23 15:21:54
- * @LastEditors: jiang.sheng 87789771@qq.com
- * @LastEditTime: 2024-05-18 10:16:13
- * @FilePath: /meimei-new/src/common/guards/jwt-auth.guard.ts
+ * @LastEditors: 张泽全 hengwujun128@gmail.com
+ * @LastEditTime: 2024-12-23 14:04:03
+ * @FilePath: /meimei-prisma-vue3/nest-prisma-api/src/common/guards/jwt-auth.guard.ts
  * @Description: jwt 校验守卫
  *
  */
@@ -23,6 +23,7 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
     // getHandler 值将覆盖 getClass上面的值
+    // 不拦截 PUBLIC_KEY 修饰的接口
     const noInterception = this.reflector.getAllAndOverride(PUBLIC_KEY, [
       context.getHandler(),
       context.getClass(),

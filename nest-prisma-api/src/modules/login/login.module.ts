@@ -1,9 +1,9 @@
 /*
  * @Author: jiang.sheng 87789771@qq.com
  * @Date: 2024-04-23 18:59:25
- * @LastEditors: JiangSheng 87789771@qq.com
- * @LastEditTime: 2024-11-07 11:31:42
- * @FilePath: \meimei-prisma-vue3\meimei-admin\src\modules\login\login.module.ts
+ * @LastEditors: 张泽全 hengwujun128@gmail.com
+ * @LastEditTime: 2024-12-23 14:05:18
+ * @FilePath: /meimei-prisma-vue3/nest-prisma-api/src/modules/login/login.module.ts
  * @Description: 登录模块
  *
  */
@@ -20,7 +20,7 @@ import { JwtModule } from '@nestjs/jwt';
       useFactory: () => {
         const expiresIn = 60 * 60 * 24 * 365; //redis来管控账号是否过期，jwt设置过期为一年
         return {
-          secret: jwtConstants.secret,
+          secret: jwtConstants.secret, //生成token的密钥
           signOptions: { expiresIn: expiresIn },
         };
       },

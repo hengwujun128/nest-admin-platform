@@ -2,8 +2,8 @@
  * @Author: JiangSheng 87789771@qq.com
  * @Date: 2024-04-24 08:35:55
  * @LastEditors: 张泽全 hengwujun128@gmail.com
- * @LastEditTime: 2024-12-03 09:46:02
- * @FilePath: /meimei-admin/src/modules/auth/strategies/jwt.strategy.ts
+ * @LastEditTime: 2024-12-23 14:05:52
+ * @FilePath: /meimei-prisma-vue3/nest-prisma-api/src/modules/auth/strategies/jwt.strategy.ts
  * @Description:
  *
  */

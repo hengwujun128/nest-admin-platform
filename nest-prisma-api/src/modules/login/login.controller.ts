@@ -1,10 +1,10 @@
 /*
  * @Author: Sheng.Jiang
  * @Date: 2021-12-08 18:30:39
- * @LastEditTime: 2024-12-19 13:55:28
+ * @LastEditTime: 2024-12-23 14:29:14
  * @LastEditors: 张泽全 hengwujun128@gmail.com
  * @Description: 登录 controller
- * @FilePath: /meimei-admin/src/modules/login/login.controller.ts
+ * @FilePath: /meimei-prisma-vue3/nest-prisma-api/src/modules/login/login.controller.ts
  * You can you up，no can no bb！！
  */
 
@@ -39,8 +39,8 @@ export class LoginController {
 
   /* 用户登录 */
   @Post('login')
-  @Public()
-  @UseGuards(LocalAuthGuard)
+  @Public() // 不走jwt验证
+  @UseGuards(LocalAuthGuard) // 走本地验证
   async login(
     @Body() reqLoginDto: ReqLoginDto,
     @User() user: SysUser,
